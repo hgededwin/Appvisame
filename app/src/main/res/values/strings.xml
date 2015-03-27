@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="txt_login_usuario">USUARIO:</string>
+    <string name="txt_login_contra">CONTRASEÑA:</string>
+    <string name="txt_btn_iniciar_sesion">Iniciar sesión</string>
 </resources>
