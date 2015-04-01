@@ -4,8 +4,8 @@
     <color name="primary_dark_color">#303F9F</color>
     <color name="accent_color">#FF4081</color>
     <color name="windowBackgroundColor">#333333</color>
-    <color name="black_translucent">#80000000</color>
-    <color name="photo_tint">#88101010</color>
+    <color name="black_color">#000</color>
+    <color name="white_color">#FFF</color>
 
 
 </resources>

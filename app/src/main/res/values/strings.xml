@@ -6,4 +6,10 @@
     <string name="txt_login_usuario">USUARIO:</string>
     <string name="txt_login_contra">CONTRASEÑA:</string>
     <string name="txt_btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="txt_selecciona_area">Selecciona el área:</string>
+    <string name="txt_titulo">Titulo:</string>
+    <string name="txt_description">Descripción:</string>
+    <string name="txt_agrega_description">Agrega una descripción del lugar…</string>
+    <string name="txt_nombre_reporte">Nombre del reporte…</string>
+    <string name="title_reporte">Reportar un problema</string>
 </resources>
