@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:background="#FFF"
     tools:context=".MainActivity">
@@ -16,23 +17,24 @@
             android:id="@+id/cardList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="100dp"/>
+            android:elevation="6dp"/>
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:elevation="3dp"
+        android:elevation="6dp"
         android:layout_height="match_parent">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnNewProblem"
-            xmlns:fab="http://schemas.android.com/apk/res-auto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            fab:fab_addButtonPlusIconColor="@color/button_material_light"
             fab:fab_icon="@drawable/ic_action_new"
             fab:fab_colorNormal="#FF4081"
             fab:fab_colorPressed="#E91E63"
+            android:elevation="6dp"
             android:layout_gravity="right|bottom"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"

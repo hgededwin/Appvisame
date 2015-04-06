@@ -3,18 +3,31 @@ package com.systemboy.appvisame.appvisame;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 
 public class RegistroActivity extends ActionBarActivity {
 
     String [] Areas;
     Spinner spAreas;
+    ImageButton btnsatusNormal, btnStatusImportante, btnStatusUrgente;
+    Button btnelegir;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        btnsatusNormal = (ImageButton)findViewById(R.id.image_status_normal);
+        btnStatusImportante = (ImageButton)findViewById(R.id.image_status_importante);
+        btnStatusUrgente = (ImageButton)findViewById(R.id.image_status_urgente);
+        btnelegir = (Button)findViewById(R.id.btn_elegir);
+        btnelegir.setVisibility(View.GONE);
 
         spAreas = (Spinner)findViewById(R.id.sp_areas);
         Areas = getResources().getStringArray(R.array.array_areas);
@@ -25,5 +38,46 @@ public class RegistroActivity extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
         toolbar.setTitle(R.string.title_reporte);
         setSupportActionBar(toolbar);
+
+        btnsatusNormal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnStatusImportante.setVisibility(View.GONE);
+                btnStatusUrgente.setVisibility(View.GONE);
+                btnelegir.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "Prioridad: Normal", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnStatusImportante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnsatusNormal.setVisibility(View.GONE);
+                btnStatusUrgente.setVisibility(View.GONE);
+                btnelegir.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "Prioridad: Importante", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnStatusUrgente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnsatusNormal.setVisibility(View.GONE);
+                btnStatusImportante.setVisibility(View.GONE);
+                btnelegir.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "Prioridad: Urgente", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnelegir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnsatusNormal.setVisibility(View.VISIBLE);
+                btnStatusImportante.setVisibility(View.VISIBLE);
+                btnStatusUrgente.setVisibility(View.VISIBLE);
+                btnelegir.setVisibility(View.GONE);
+            }
+        });
+
     }
 }
