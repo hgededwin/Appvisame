@@ -6,7 +6,8 @@ package com.systemboy.appvisame.appvisame;
 public class Usuario {
     protected String name;
     protected String surname;
-
+    protected String email;
+    protected String titulo;
     public String getEmail() {
         return email;
     }
@@ -39,6 +40,5 @@ public class Usuario {
         this.titulo = titulo;
     }
 
-    protected String email;
-    protected String titulo;
+
 }

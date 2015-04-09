@@ -7,39 +7,80 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONObject;
 
+<<<<<<< HEAD
 
 public class RegistroActivity extends ActionBarActivity {
+=======
+>>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
 
+public class RegistroActivity extends ActionBarActivity {
+    Usuario persona;
+    Reporte reporte;
     String [] Areas;
     Spinner spAreas;
+    String prioridad;
     ImageButton btnsatusNormal, btnStatusImportante, btnStatusUrgente;
+<<<<<<< HEAD
     Button btnelegir;
     Button btnEnviarReporte;
+=======
+    Button btnelegir, btnReporte;
+    EditText edTitulo, edDescripcion;
+    int area;
+>>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+<<<<<<< HEAD
         btnEnviarReporte = (Button)findViewById(R.id.btnSendReport);
+=======
+        reporte= new Reporte();
+        persona=new Usuario();
+
+>>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
         btnsatusNormal = (ImageButton)findViewById(R.id.image_status_normal);
         btnStatusImportante = (ImageButton)findViewById(R.id.image_status_importante);
         btnStatusUrgente = (ImageButton)findViewById(R.id.image_status_urgente);
         btnelegir = (Button)findViewById(R.id.btn_elegir);
         btnelegir.setVisibility(View.GONE);
+<<<<<<< HEAD
+=======
+        btnReporte = (Button)findViewById(R.id.btn_Reporte);
+        edTitulo = (EditText) findViewById(R.id.edTitulo);
+        edDescripcion = (EditText) findViewById(R.id.edDescripcion);
+
+>>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
         spAreas = (Spinner)findViewById(R.id.sp_areas);
         Areas = getResources().getStringArray(R.array.array_areas);
         ArrayAdapter<String> AreasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Areas);
         AreasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spAreas.setAdapter(AreasAdapter);
+        spAreas.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        area = position;
+                    }
 
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                }
+        );
         Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
         toolbar.setTitle(R.string.title_reporte);
         setSupportActionBar(toolbar);
@@ -52,6 +93,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnStatusImportante.setVisibility(View.GONE);
                 btnStatusUrgente.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
+                prioridad = "Normal";
                 Toast.makeText(getApplicationContext(), "Prioridad: Normal", Toast.LENGTH_LONG).show();
             }
         });
@@ -62,6 +104,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnsatusNormal.setVisibility(View.GONE);
                 btnStatusUrgente.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
+                prioridad = "Importante";
                 Toast.makeText(getApplicationContext(), "Prioridad: Importante", Toast.LENGTH_LONG).show();
             }
         });
@@ -72,6 +115,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnsatusNormal.setVisibility(View.GONE);
                 btnStatusImportante.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
+                prioridad = "Urgente";
                 Toast.makeText(getApplicationContext(), "Prioridad: Urgente", Toast.LENGTH_LONG).show();
             }
         });
@@ -86,6 +130,7 @@ public class RegistroActivity extends ActionBarActivity {
             }
         });
 
+<<<<<<< HEAD
         btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,5 +146,40 @@ public class RegistroActivity extends ActionBarActivity {
     {
         onBackPressed();
         return true;
+=======
+        btnReporte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reporte.setArea(area+1);
+                reporte.setTitulo(edTitulo.getText().toString());
+                reporte.setDescripcion(edDescripcion.getText().toString());
+                reporte.setPrioridad(prioridad);
+                persona.setName("Desconocido");
+                persona.setEmail("hola@mundo.com");
+                enviarJSON(persona,reporte);
+            }
+        });
+
+
     }
+    public String enviarJSON(Usuario registra, Reporte problema){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            jsonObject.put("area", problema.getArea());
+            jsonObject.put("titulo",problema.getTitulo());
+            jsonObject.put("descripcion",problema.getDescripcion());
+            jsonObject.put("prioridad",problema.getPrioridad());
+            jsonObject.put("usuario",registra.getName());
+            jsonObject.put("correo",registra.getEmail());
+            System.out.println("<-"+jsonObject.toString()+"->");
+            return jsonObject.toString();
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+>>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
+    }
+
+
+
 }
