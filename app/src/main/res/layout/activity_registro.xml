@@ -63,12 +63,8 @@
                 android:hint="@string/txt_nombre_reporte"
                 android:ems="10"
                 android:layout_marginTop="15dp"
-<<<<<<< HEAD
-                android:id="@+id/editText"
+                android:id="@+id/edtxt_titulo"
                 android:elevation="4dp"
-=======
-                android:id="@+id/edTitulo"
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"/>
 
@@ -123,7 +119,7 @@
                     android:textColor="@color/accent_color"
                     android:textSize="10sp"
                     android:textStyle="bold"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:background="@color/white_color"
                     android:elevation="10dp"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/btn_elegir" />
@@ -184,13 +180,6 @@
                 android:textSize="15sp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-<<<<<<< HEAD
-=======
-                android:elevation="6dp"
-                android:id="@+id/btn_Reporte" />
-
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
-
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/btnSendReport" />
             </LinearLayout>

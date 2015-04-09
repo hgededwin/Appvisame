@@ -17,11 +17,7 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-<<<<<<< HEAD
 
-public class RegistroActivity extends ActionBarActivity {
-=======
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
 
 public class RegistroActivity extends ActionBarActivity {
     Usuario persona;
@@ -30,39 +26,32 @@ public class RegistroActivity extends ActionBarActivity {
     Spinner spAreas;
     String prioridad;
     ImageButton btnsatusNormal, btnStatusImportante, btnStatusUrgente;
-<<<<<<< HEAD
-    Button btnelegir;
     Button btnEnviarReporte;
-=======
     Button btnelegir, btnReporte;
     EditText edTitulo, edDescripcion;
     int area;
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-<<<<<<< HEAD
+
         btnEnviarReporte = (Button)findViewById(R.id.btnSendReport);
-=======
+
         reporte= new Reporte();
         persona=new Usuario();
 
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
         btnsatusNormal = (ImageButton)findViewById(R.id.image_status_normal);
         btnStatusImportante = (ImageButton)findViewById(R.id.image_status_importante);
         btnStatusUrgente = (ImageButton)findViewById(R.id.image_status_urgente);
         btnelegir = (Button)findViewById(R.id.btn_elegir);
         btnelegir.setVisibility(View.GONE);
-<<<<<<< HEAD
-=======
-        btnReporte = (Button)findViewById(R.id.btn_Reporte);
-        edTitulo = (EditText) findViewById(R.id.edTitulo);
+        edTitulo = (EditText) findViewById(R.id.edtxt_titulo);
         edDescripcion = (EditText) findViewById(R.id.edDescripcion);
 
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
+
         spAreas = (Spinner)findViewById(R.id.sp_areas);
         Areas = getResources().getStringArray(R.array.array_areas);
         ArrayAdapter<String> AreasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Areas);
@@ -129,25 +118,14 @@ public class RegistroActivity extends ActionBarActivity {
                 btnelegir.setVisibility(View.GONE);
             }
         });
-
-<<<<<<< HEAD
-        btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem)
     {
         onBackPressed();
-        return true;
-=======
-        btnReporte.setOnClickListener(new View.OnClickListener() {
+
+        btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 reporte.setArea(area+1);
@@ -157,11 +135,14 @@ public class RegistroActivity extends ActionBarActivity {
                 persona.setName("Desconocido");
                 persona.setEmail("hola@mundo.com");
                 enviarJSON(persona,reporte);
+
+                Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
-
-
+        return true;
     }
+
     public String enviarJSON(Usuario registra, Reporte problema){
         JSONObject jsonObject = new JSONObject();
         try{
@@ -177,7 +158,7 @@ public class RegistroActivity extends ActionBarActivity {
             e.printStackTrace();
             return null;
         }
->>>>>>> 351e98daef3d1014162f89fa57ae1712168837f1
+
     }
 
 
