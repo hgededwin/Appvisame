@@ -110,8 +110,6 @@
                     android:layout_marginLeft="10dp"
                     android:id="@+id/textView4" />
 
-
-
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="30dp"
@@ -119,7 +117,7 @@
                     android:textColor="@color/accent_color"
                     android:textSize="10sp"
                     android:textStyle="bold"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:background="@color/white_color"
                     android:elevation="10dp"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/btn_elegir" />
@@ -140,7 +138,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/white_color"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:id="@+id/image_status_normal"
                     android:layout_gravity="center_horizontal" />
 
@@ -152,14 +150,14 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
-                    android:background="@color/white_color"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:id="@+id/image_status_importante"
                     android:layout_gravity="center_horizontal" />
 
                 <ImageButton
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@color/white_color"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_max_status"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
@@ -180,7 +178,6 @@
                 android:textSize="15sp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/btnSendReport" />
             </LinearLayout>
