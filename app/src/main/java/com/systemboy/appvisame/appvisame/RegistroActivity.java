@@ -14,12 +14,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import org.json.JSONObject;
 
-
-
 public class RegistroActivity extends ActionBarActivity {
+
     Usuario persona;
     Reporte reporte;
     String [] Areas;
@@ -27,7 +25,7 @@ public class RegistroActivity extends ActionBarActivity {
     String prioridad;
     ImageButton btnsatusNormal, btnStatusImportante, btnStatusUrgente;
     Button btnEnviarReporte;
-    Button btnelegir, btnReporte;
+    Button btnelegir;
     EditText edTitulo, edDescripcion;
     int area;
 
@@ -118,30 +116,34 @@ public class RegistroActivity extends ActionBarActivity {
                 btnelegir.setVisibility(View.GONE);
             }
         });
+
+
+        btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*reporte.setArea(area+1);
+                reporte.setTitulo(edTitulo.getText().toString());
+                reporte.setDescripcion(edDescripcion.getText().toString());
+                reporte.setPrioridad(prioridad);
+                persona.setName("Desconocido");
+                persona.setEmail("hola@mundo.com");
+                enviarJSON(persona,reporte);*/
+
+                Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem)
     {
         onBackPressed();
-
-        btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reporte.setArea(area+1);
-                reporte.setTitulo(edTitulo.getText().toString());
-                reporte.setDescripcion(edDescripcion.getText().toString());
-                reporte.setPrioridad(prioridad);
-                persona.setName("Desconocido");
-                persona.setEmail("hola@mundo.com");
-                enviarJSON(persona,reporte);
-
-                Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
         return true;
     }
+
 
     public String enviarJSON(Usuario registra, Reporte problema){
         JSONObject jsonObject = new JSONObject();
@@ -158,9 +160,5 @@ public class RegistroActivity extends ActionBarActivity {
             e.printStackTrace();
             return null;
         }
-
     }
-
-
-
 }
