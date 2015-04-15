@@ -35,6 +35,11 @@ public class RegistroActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
+        toolbar.setTitle(R.string.title_reporte);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         btnEnviarReporte = (Button)findViewById(R.id.btnSendReport);
 
@@ -68,10 +73,7 @@ public class RegistroActivity extends ActionBarActivity {
                     }
                 }
         );
-        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
-        toolbar.setTitle(R.string.title_reporte);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         btnsatusNormal.setOnClickListener(new View.OnClickListener() {
