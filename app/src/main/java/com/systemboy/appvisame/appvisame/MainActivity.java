@@ -85,8 +85,10 @@ public class MainActivity extends ActionBarActivity {
 
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
-
                 break;
+            case R.id.action_about:
+                Intent intentAbout = new Intent(MainActivity.this, AcercaActivity.class);
+                startActivity(intentAbout);
             default:
                 break;
         }

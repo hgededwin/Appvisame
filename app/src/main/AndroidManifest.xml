@@ -25,5 +25,14 @@
         <activity android:name=".SettingsActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".AcercaActivity"
+            android:screenOrientation="portrait">
+            </activity>
+        <activity android:name="com.systemboy.appvisame.activity.about.DetailsActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.systemboy.appvisame.appvisame.AcercaActivity" />
+            </activity>
     </application>
 </manifest>
