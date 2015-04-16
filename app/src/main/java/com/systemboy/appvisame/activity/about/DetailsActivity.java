@@ -1,8 +1,10 @@
 package com.systemboy.appvisame.activity.about;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.systemboy.appvisame.appvisame.R;
@@ -13,6 +15,7 @@ public class DetailsActivity extends ActionBarActivity {
     // Before the onCreate
     public final static String ID = "ID";
     public Integrantes mContact;
+    public View mCircle;
     TextView mName;
     TextView mPhone;
     TextView mMail;
@@ -25,6 +28,9 @@ public class DetailsActivity extends ActionBarActivity {
 
         mContact = Integrantes.getItem(getIntent().getIntExtra(ID, 0));
 
+        mCircle = findViewById(R.id.DETAILS_circle);
+
+
         mName = (TextView) findViewById(R.id.DETAILS_name);
         mName.setText(mContact.get(Integrantes.Field.NAME));
 
@@ -36,6 +42,9 @@ public class DetailsActivity extends ActionBarActivity {
 
         mCity = (TextView)findViewById(R.id.DETAILS_city);
         mCity.setText(mContact.get(Integrantes.Field.CITY));
+
+        GradientDrawable bgShape = (GradientDrawable) mCircle.getBackground();
+        bgShape.setColor(Color.parseColor(mContact.get(Integrantes.Field.COLOR)));
 
 
 

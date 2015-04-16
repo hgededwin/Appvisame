@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.pkmmte.view.CircularImageView;
 import com.systemboy.appvisame.activity.about.DataMannager;
 import com.systemboy.appvisame.activity.about.DetailsActivity;
 import com.systemboy.appvisame.activity.about.Integrantes;
@@ -27,6 +28,12 @@ public class AcercaActivity extends ActionBarActivity {
        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
        toolbar.setTitle("Acerca de");
        setSupportActionBar(toolbar);
+
+
+       CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image_circular);
+       circularImageView.setBorderColor(getResources().getColor(R.color.accent_color));
+       circularImageView.setBorderWidth(4);
+       circularImageView.addShadow();
 
        RecyclerView rv = (RecyclerView) findViewById(R.id.rv); // layout reference
 
