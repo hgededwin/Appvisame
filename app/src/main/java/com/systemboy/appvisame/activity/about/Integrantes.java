@@ -4,14 +4,14 @@ package com.systemboy.appvisame.activity.about;
 public class Integrantes {
 
     public static final Integrantes[] CONTACTS = new Integrantes[] {
-            new Integrantes("Cesar García", "#3F51B5", "+01 123456789", "john@example.com", "Venice"),
-            new Integrantes("Daniel Carreto", "#E91E63", "+01 987654321", "valter@example.com", "Bologna"),
-            new Integrantes("Edwin Hernández", "#3F51B5", "+01 123456789", "hgededwindaniel@gmail.com", "Verona"),
-            new Integrantes("Llulian Soriano", "#E91E63", "+01 987654321", "teddy@example.com", "Rome"),
-            new Integrantes("Diana García", "#3F51B5", "+01 11235813", "ives@example.com", "Milan"),
-            new Integrantes("Cesar Santiago", "#E91E63", "+01 123456789", "alajos@example.com", "Bologna"),
-            new Integrantes("Nadia", "#3F51B5", "+01 11235813", "me@gian.lu", "Padova"),
-            new Integrantes("Luis", "#E91E63", "+01 987654321", "fane@example.com", "Venice"),
+            new Integrantes("Cesar García", "#3F51B5", "Lider de proyecto", "john@example.com", "Venice"),
+            new Integrantes("Daniel Carreto", "#E91E63", "Desarrollador Android", "danny_carreto@hotmail.com", "Bologna"),
+            new Integrantes("Edwin Hernández", "#3F51B5", "Desarrollador Android", "hgededwindaniel@gmail.com", "55 24 48 00 74"),
+            new Integrantes("Llulian Soriano", "#E91E63", "Desarrollador Web", "teddy@example.com", "Rome"),
+            new Integrantes("Diana García", "#3F51B5", "Desarrollador Bases de datos", "ives@example.com", "Milan"),
+            new Integrantes("Cesar Santiago", "#E91E63", "Desarrollador Bases de datos", "alajos@example.com", "Bologna"),
+            new Integrantes("Nadia Rodriguez", "#3F51B5", "Documentación del proyecto", "me@gian.lu", "Padova"),
+            new Integrantes("Luis", "#E91E63", "Documentación del proyecto", "fane@example.com", "Venice"),
     };
 
     // The fields associated to the person

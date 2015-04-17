@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.pkmmte.view.CircularImageView;
@@ -28,10 +29,11 @@ public class AcercaActivity extends ActionBarActivity {
        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
        toolbar.setTitle("Acerca de");
        setSupportActionBar(toolbar);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
        CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image_circular);
-       circularImageView.setBorderColor(getResources().getColor(R.color.accent_color));
+       circularImageView.setBorderColor(getResources().getColor(R.color.white_color));
        circularImageView.setBorderWidth(4);
        circularImageView.addShadow();
 
@@ -66,4 +68,12 @@ public class AcercaActivity extends ActionBarActivity {
                    }
                }));
    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        onBackPressed();
+        return true;
+    }
 }

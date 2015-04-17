@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:transitionName="@string/transition_name_name"
             android:text="Jonh Doe"
+            android:textStyle="bold"
             android:layout_toRightOf="@+id/DETAILS_circle"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_centerVertical="true"
@@ -53,7 +55,8 @@
                 android:id="@+id/DETAILS_phone_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone:"
+                android:textStyle="bold"
+                android:text="Puesto:"
                 android:textColor="#000"
                 android:textSize="20sp"/>
 
@@ -62,11 +65,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:transitionName="@string/transition_name_phone"
-                android:layout_toRightOf="@+id/DETAILS_phone_label"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:text="+01 123456789"
                 android:textColor="#9f9f9f"
-                android:textSize="20sp"/>
+                android:layout_marginLeft="15dp"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/DETAILS_phone_label"
+                android:layout_toEndOf="@+id/DETAILS_phone_label" />
 
         </RelativeLayout>
 
@@ -80,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email:"
+                android:textStyle="bold"
                 android:textColor="#000"
                 android:textSize="20sp"/>
 
@@ -87,11 +93,13 @@
                 android:id="@+id/DETAILS_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/DETAILS_email_label"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:text="jonh.doe@example.com"
                 android:textColor="#9f9f9f"
-                android:textSize="20sp"/>
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/DETAILS_email_label"
+                android:layout_toEndOf="@+id/DETAILS_email_label" />
 
         </RelativeLayout>
 
@@ -104,7 +112,8 @@
                 android:id="@+id/DETAILS_city_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="City:"
+                android:textStyle="bold"
+                android:text="Teléfono:"
                 android:textColor="#000"
                 android:textSize="20sp"/>
 
@@ -112,11 +121,13 @@
                 android:id="@+id/DETAILS_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/DETAILS_city_label"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:text="Rome"
                 android:textColor="#9f9f9f"
-                android:textSize="20sp"/>
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/DETAILS_city_label"
+                android:layout_toEndOf="@+id/DETAILS_city_label" />
 
         </RelativeLayout>
     </LinearLayout>
