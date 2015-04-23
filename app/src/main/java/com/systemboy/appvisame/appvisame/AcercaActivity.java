@@ -8,6 +8,7 @@ import android.support.v4.util.Pair;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +28,7 @@ public class AcercaActivity extends ActionBarActivity {
        setContentView(R.layout.activity_acercade);
 
        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
-       toolbar.setTitle("Acerca de");
+       toolbar.setTitle("");
        setSupportActionBar(toolbar);
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:background="@color/white_color">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_color">
 
-    <include
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relative"
-        android:orientation="vertical"
-        android:layout_marginTop="55dp">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content">
 
             <com.pkmmte.view.CircularImageView
@@ -36,7 +40,7 @@ android:background="@color/white_color">
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
-            </RelativeLayout>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -60,7 +64,7 @@ android:background="@color/white_color">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Versión: 1.0"
-                android:textColor="@color/black_color"
+                android:textColor="@color/white_color"
                 android:textSize="12sp"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
@@ -70,14 +74,7 @@ android:background="@color/white_color">
                 android:layout_centerHorizontal="true" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/primary_color">
-        </RelativeLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,13 +89,22 @@ android:background="@color/white_color">
             android:layout_alignParentStart="true"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="38dp" />
-        </LinearLayout>
 
-<android.support.v7.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/relative"
-    android:id="@+id/rv" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/primary_color">
+        </RelativeLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative"
+        android:id="@+id/rv" />
 </RelativeLayout>

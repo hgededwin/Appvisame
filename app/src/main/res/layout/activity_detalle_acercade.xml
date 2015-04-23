@@ -4,12 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/wallpaper"/>
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/toolbar_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wallpaper"/>
+
+        </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,6 +34,7 @@
             android:layout_height="48dp"
             android:background="@drawable/circle"
             android:layout_centerVertical="true"
+            android:layout_marginBottom="-20dp"
             android:layout_alignParentLeft="true"/>
 
         <TextView
