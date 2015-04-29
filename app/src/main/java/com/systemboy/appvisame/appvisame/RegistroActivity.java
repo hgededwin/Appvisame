@@ -83,6 +83,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnStatusUrgente.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
                 prioridad = "Normal";
+                btnsatusNormal.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Prioridad: Normal", Toast.LENGTH_LONG).show();
             }
         });
@@ -94,6 +95,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnStatusUrgente.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
                 prioridad = "Importante";
+                btnStatusImportante.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Prioridad: Importante", Toast.LENGTH_LONG).show();
             }
         });
@@ -105,6 +107,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnStatusImportante.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
                 prioridad = "Urgente";
+                btnStatusUrgente.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Prioridad: Urgente", Toast.LENGTH_LONG).show();
             }
         });
@@ -116,6 +119,9 @@ public class RegistroActivity extends ActionBarActivity {
                 btnStatusImportante.setVisibility(View.VISIBLE);
                 btnStatusUrgente.setVisibility(View.VISIBLE);
                 btnelegir.setVisibility(View.GONE);
+                btnsatusNormal.setEnabled(true);
+                btnStatusImportante.setEnabled(true);
+                btnStatusUrgente.setEnabled(true);
             }
         });
 

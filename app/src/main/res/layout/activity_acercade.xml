@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="Appvisame"
                 android:textSize="25sp"
-                android:textColor="@color/accent_color"
+                android:textColor="@color/white_color"
                 android:textStyle="bold"
                 android:id="@+id/textView7"
                 android:layout_alignParentTop="true"
