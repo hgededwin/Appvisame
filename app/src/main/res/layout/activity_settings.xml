@@ -7,16 +7,22 @@
     android:fitsSystemWindows="true"
     android:background="@android:color/white">
 
-    <include
-        layout="@layout/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:elevation="8dp"
+        android:background="@color/primary_color"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/imageButton"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_user_admin"
             android:layout_above="@+id/textView5"
             android:layout_centerHorizontal="true" />

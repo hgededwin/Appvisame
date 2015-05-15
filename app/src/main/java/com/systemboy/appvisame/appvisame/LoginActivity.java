@@ -17,6 +17,8 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         btninicio = (Button)findViewById(R.id.btnIniciar);
 
         CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image_circular);
