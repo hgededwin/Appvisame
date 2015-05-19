@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-
 import com.pkmmte.view.CircularImageView;
 
 
@@ -25,8 +24,6 @@ public class LoginActivity extends ActionBarActivity {
             ViewGroup.LayoutParams layoutParams = statusBar.getLayoutParams();
             layoutParams.height = 0;
         }
-
-
 
         btninicio = (Button)findViewById(R.id.btnIniciar);
 

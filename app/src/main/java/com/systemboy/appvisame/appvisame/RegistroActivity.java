@@ -38,6 +38,7 @@ public class RegistroActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+
         if(Build.VERSION.SDK_INT < 19 || Build.VERSION.SDK_INT >= 22){
             FrameLayout statusBar = (FrameLayout) findViewById(R.id.statusBar);
             ViewGroup.LayoutParams layoutParams = statusBar.getLayoutParams();
