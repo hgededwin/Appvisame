@@ -7,17 +7,16 @@
     android:fitsSystemWindows="true"
     android:background="@android:color/white">
 
-    <RelativeLayout
+    <FrameLayout
+        android:id="@+id/statusBar"
         android:layout_width="match_parent"
-        android:elevation="8dp"
-        android:background="@color/primary_color"
-        android:layout_height="wrap_content">
+        android:layout_height="25dp"
+        android:background="?attr/colorPrimary"/>
 
         <include
             layout="@layout/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    </RelativeLayout>
 
         <ImageView
             android:layout_width="100dp"

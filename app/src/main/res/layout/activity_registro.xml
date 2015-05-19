@@ -4,18 +4,16 @@
     android:background="@color/white_color"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/statusBar"
         android:layout_width="match_parent"
-        android:elevation="8dp"
-        android:background="@color/primary_color"
-        android:layout_height="wrap_content">
+        android:layout_height="25dp"
+        android:background="?attr/colorPrimary"/>
 
         <include
             layout="@layout/toolbar"
             android:layout_width="match_parent"
-            android:layout_marginTop="24dp"
             android:layout_height="wrap_content" />
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"

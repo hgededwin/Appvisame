@@ -36,6 +36,7 @@ public class DetailsActivity extends ActionBarActivity {
 
 
 
+
         Toolbar toolbar_transparent = (Toolbar) findViewById(R.id.activity_my_toolbar_transparent);
         toolbar_transparent.setTitle("Contacto");
         setSupportActionBar(toolbar_transparent);
