@@ -54,7 +54,7 @@ public class RegistroActivity extends ActionBarActivity {
         btnEnviarReporte = (Button)findViewById(R.id.btnSendReport);
 
         reporte= new Reporte();
-        persona=new Usuario();
+      //  persona=new Usuario();
 
         btnsatusNormal = (ImageButton)findViewById(R.id.image_status_normal);
         btnStatusImportante = (ImageButton)findViewById(R.id.image_status_importante);
@@ -170,8 +170,8 @@ public class RegistroActivity extends ActionBarActivity {
             jsonObject.put("titulo",problema.getTitulo());
             jsonObject.put("descripcion",problema.getDescripcion());
             jsonObject.put("prioridad",problema.getPrioridad());
-            jsonObject.put("usuario",registra.getName());
-            jsonObject.put("correo",registra.getEmail());
+          //  jsonObject.put("usuario",registra.getName());
+           // jsonObject.put("correo",registra.getEmail());
             System.out.println("<-"+jsonObject.toString()+"->");
             return jsonObject.toString();
         }catch(Exception e){

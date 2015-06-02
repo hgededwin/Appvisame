@@ -1,5 +1,6 @@
 package com.systemboy.appvisame.appvisame;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +12,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-/**
- * Created by Daniel on 02/04/2015.
- */
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactViewHolder> {
 
     private List<Usuario> contactList;
@@ -31,20 +29,14 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactV
     @Override
     public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
         final Usuario ci = contactList.get(i);
-        contactViewHolder.vName.setText(ci.getName());
-        contactViewHolder.vSurname.setText(ci.getSurname());
-        contactViewHolder.vEmail.setText(ci.getEmail());
-        contactViewHolder.vTitle.setText(ci.getTitulo());
-        contactViewHolder.bton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "" + ci.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        contactViewHolder.vTitulo.setText(ci.getTitulo());
+        contactViewHolder.vEstado.setText(ci.getEstado());
+        contactViewHolder.vFecha.setText(ci.getFecha());
+        contactViewHolder.vUrgencia.setText(ci.getUrgencia());
         contactViewHolder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"tarjetas:"+ci.getName()+ci.getEmail(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),"tarjetas:"+ci.getTitulo()+ci.getEstado(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -59,21 +51,21 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactV
         return new ContactViewHolder(itemView);
     }
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
-        protected TextView vName;
-        protected TextView vSurname;
-        protected TextView vEmail;
-        protected TextView vTitle;
-        protected Button bton;
+        protected TextView vTitulo;
+        protected TextView vEstado;
+        protected TextView vFecha;
+        protected TextView vUrgencia;
+        Context context;
         protected CardView card;
 
         public ContactViewHolder(View v) {
             super(v);
-            vName =  (TextView) v.findViewById(R.id.txtName);
-            vSurname = (TextView)  v.findViewById(R.id.txtSurname);
-            vEmail = (TextView)  v.findViewById(R.id.txtEmail);
-            vTitle = (TextView) v.findViewById(R.id.title);
-            bton=(Button) v.findViewById(R.id.boton);
-            card= (CardView) v.findViewById(R.id.card_view);
+            vTitulo =  (TextView) v.findViewById(R.id.txt_Titulo);
+            vEstado = (TextView)  v.findViewById(R.id.txt_estado);
+            vFecha = (TextView)  v.findViewById(R.id.txt_fecha);
+            vUrgencia = (TextView) v.findViewById(R.id.txt_urgencia);
+            card= (CardView) v.findViewById(R.id.cardInicio);
+            context.getApplicationContext();
         }
     }
 }

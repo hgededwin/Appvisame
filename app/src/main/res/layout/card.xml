@@ -1,67 +1,77 @@
 <android.support.v7.widget.CardView
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.adroid.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card_view"
+    android:id="@+id/cardInicio"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:elevation="6dp"
-    card_view:cardCornerRadius="8dp"
-    android:layout_margin="5dp"
-   >
+    android:background="@color/white_color"
+    card_view:cardCornerRadius="10dp"
+    android:layout_margin="5dp">
+
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/fondoTarjeta"
         android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/title"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:background="#00b8d4"
-            android:text="contact det"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/white"
-            android:textSize="14dp"/>
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:gravity="center_vertical"
-            android:textSize="10dp"
-            android:layout_below="@id/title"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"/>
+           <!-- <ImageView
+                android:id="@+id/image_urgencia"
+                android:layout_width="100dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ic_max_status"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="left|top"
+                android:layout_height="100dp" />-->
 
-        <TextView
-            android:id="@+id/txtSurname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Surname"
-            android:gravity="center_vertical"
-            android:textSize="10dp"
-            android:layout_below="@id/txtName"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:textColor="@color/black_color"
+                android:layout_marginTop="50dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/txt_Titulo"
+                android:layout_gravity="center_horizontal|top" />
 
-        <TextView
-            android:id="@+id/txtEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textSize="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="15dp"
-            android:layout_alignBaseline="@id/txtName"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/boton"
-            android:text="Pesioname"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/txt_fecha"
+                android:textColor="@color/black_color"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="right|bottom" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:textColor="@color/black_color"
+                android:layout_marginRight="17dp"
+                android:id="@+id/txt_estado"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/txt_urgencia"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
 
 
     </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+</android.support.v7.widget.CardView>
