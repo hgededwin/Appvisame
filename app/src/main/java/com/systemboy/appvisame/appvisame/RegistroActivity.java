@@ -17,7 +17,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistroActivity extends ActionBarActivity {
 
@@ -31,6 +42,10 @@ public class RegistroActivity extends ActionBarActivity {
     Button btnelegir;
     EditText edTitulo, edDescripcion;
     int area;
+    private Singleton volley;
+    protected RequestQueue fRequestQueue;
+    JSONObject jsonObject;
+
 
 
     @Override
@@ -50,6 +65,9 @@ public class RegistroActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        volley = Singleton.getInstance(this);
+        fRequestQueue = volley.getRequestQueue();
 
         btnEnviarReporte = (Button)findViewById(R.id.btnSendReport);
 
@@ -139,18 +157,14 @@ public class RegistroActivity extends ActionBarActivity {
         btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*reporte.setArea(area+1);
+                reporte.setArea(area+1);
                 reporte.setTitulo(edTitulo.getText().toString());
                 reporte.setDescripcion(edDescripcion.getText().toString());
                 reporte.setPrioridad(prioridad);
-                persona.setName("Desconocido");
-                persona.setEmail("hola@mundo.com");
-                enviarJSON(persona,reporte);*/
-
-                Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
-                startActivity(intent);
-
-
+               // persona.setName("Desconocido");
+               // persona.setEmail("hola@mundo.com");
+                enviarJSON(reporte);
+                makeRequest();
             }
         });
     }
@@ -163,20 +177,58 @@ public class RegistroActivity extends ActionBarActivity {
     }
 
 
-    public String enviarJSON(Usuario registra, Reporte problema){
-        JSONObject jsonObject = new JSONObject();
+    public String enviarJSON(Reporte problema){
+       jsonObject = new JSONObject();
         try{
             jsonObject.put("area", problema.getArea());
             jsonObject.put("titulo",problema.getTitulo());
             jsonObject.put("descripcion",problema.getDescripcion());
-            jsonObject.put("prioridad",problema.getPrioridad());
+            jsonObject.put("prioridad","1");
+            jsonObject.put("estado","1");
+            jsonObject.put("fecha","2015-01-23");
+            jsonObject.put("usuario","1");
           //  jsonObject.put("usuario",registra.getName());
            // jsonObject.put("correo",registra.getEmail());
             System.out.println("<-"+jsonObject.toString()+"->");
+
             return jsonObject.toString();
         }catch(Exception e){
             e.printStackTrace();
             return null;
         }
     }
+
+    public void onConnectionFinished() {
+
+        Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void makeRequest(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://appvisame.hol.es/appvisame.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        System.out.println("/////////////////////////->"+response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("-"+error);
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("reporte", ""+jsonObject.toString());
+                return params;
+            }
+        };
+// Add the request to the RequestQueue.
+        queue.add(stringRequest);
+        onConnectionFinished();
+    }
+
 }

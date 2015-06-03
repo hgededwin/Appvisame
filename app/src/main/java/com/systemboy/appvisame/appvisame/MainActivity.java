@@ -31,9 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -56,13 +54,17 @@ public class MainActivity extends ActionBarActivity {
             layoutParams.height = 0;
         }
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
+        toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(toolbar);
+
         indeterminate = (ProgressBarCircularIndeterminate)findViewById(R.id.progressBarCircularIndeterminate2);
-        volley = Singleton.getInstance(this.getApplicationContext());
+        volley = Singleton.getInstance(this);
         fRequestQueue = volley.getRequestQueue();
 
 
 
-        final RecyclerView recList = (RecyclerView)findViewById(R.id.cardList);
+       recList = (RecyclerView)findViewById(R.id.cardList);
         recList.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -71,11 +73,6 @@ public class MainActivity extends ActionBarActivity {
 
 
          /**/
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_my_toolbar);
-        toolbar.setTitle(R.string.app_name);
-        setSupportActionBar(toolbar);
-
 
         FloatingActionButton btnNuevoReporte;
         btnNuevoReporte = (FloatingActionButton)findViewById(R.id.btnNewProblem);
@@ -95,18 +92,19 @@ public class MainActivity extends ActionBarActivity {
 
         lista = new ArrayList<>();
         RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
-        String url ="http://appvisame.hol.es/appvisame.php";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+        String url ="http://appvisame.hol.es/registrar.php";
+        StringRequest stringRequest = new StringRequest(url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
                             Arrayjson = new JSONArray(response);
+
                             llenarTarjetas(Arrayjson);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        System.out.println(response);
+
                     }
                 }, new Response.ErrorListener() {
             @Override

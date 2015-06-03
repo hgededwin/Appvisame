@@ -18,14 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-           <!-- <ImageView
+            <ImageView
                 android:id="@+id/image_urgencia"
                 android:layout_width="100dp"
                 android:layout_marginTop="50dp"
-                android:src="@drawable/ic_max_status"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_gravity="left|top"
-                android:layout_height="100dp" />-->
+                android:layout_height="100dp" />
 
             <TextView
                 android:layout_width="wrap_content"
