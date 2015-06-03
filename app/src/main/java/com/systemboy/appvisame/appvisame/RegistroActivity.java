@@ -37,6 +37,7 @@ public class RegistroActivity extends ActionBarActivity {
     String [] Areas;
     Spinner spAreas;
     String prioridad;
+    String fecha;
     ImageButton btnsatusNormal, btnStatusImportante, btnStatusUrgente;
     Button btnEnviarReporte;
     Button btnelegir;

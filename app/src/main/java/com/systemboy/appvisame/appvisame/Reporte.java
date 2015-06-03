@@ -1,13 +1,12 @@
 package com.systemboy.appvisame.appvisame;
 
-/**
- * Created by Daniel on 07/04/2015.
- */
+
 public class Reporte{
     private int area;
     private String titulo;
     private String descripcion;
     private String prioridad;
+    private String fecha;
 
 
     public int getArea() {
@@ -42,5 +41,10 @@ public class Reporte{
         this.prioridad = prioridad;
     }
 
-
+    public String getFecha(String fecha){
+        return fecha;
+    }
+    public void setFecha(String fecha){
+        this.fecha = fecha;
+    }
 }

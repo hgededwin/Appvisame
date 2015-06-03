@@ -39,10 +39,10 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactV
             case "Normal":
                 contactViewHolder.imgUrgencia.setBackgroundResource(R.drawable.ic_normal_status);
                 break;
-            case "Urgente":
+            case "Importante":
                 contactViewHolder.imgUrgencia.setBackgroundResource(R.drawable.ic_medium_status);
                 break;
-            case "Importante":
+            case "Urgente":
                 contactViewHolder.imgUrgencia.setBackgroundResource(R.drawable.ic_max_status);
                 break;
             default:

@@ -85,7 +85,7 @@
         android:layout_marginRight="10dp"
         android:layout_alignLeft="@+id/btnIniciar"
         android:layout_alignStart="@+id/btnIniciar"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="30dp" />
 
 
     <TextView
@@ -95,7 +95,7 @@
         android:text="@string/txt_login_contra"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/primary_dark_color"
         android:id="@+id/textView11"
         android:layout_centerVertical="true"
@@ -109,7 +109,7 @@
         android:ems="10"
         android:drawableLeft="@drawable/ic_action_secure"
         android:id="@+id/edtxtPassw"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginRight="10dp"
         android:layout_above="@+id/btnIniciar"
         android:layout_alignLeft="@+id/edtxtUsuario"
