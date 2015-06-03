@@ -111,7 +111,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnStatusImportante.setVisibility(View.GONE);
                 btnStatusUrgente.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
-                prioridad = "Normal";
+                prioridad = "1";
                 btnsatusNormal.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Prioridad: Normal", Toast.LENGTH_LONG).show();
             }
@@ -123,7 +123,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnsatusNormal.setVisibility(View.GONE);
                 btnStatusUrgente.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
-                prioridad = "Importante";
+                prioridad = "2";
                 btnStatusImportante.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Prioridad: Importante", Toast.LENGTH_LONG).show();
             }
@@ -135,7 +135,7 @@ public class RegistroActivity extends ActionBarActivity {
                 btnsatusNormal.setVisibility(View.GONE);
                 btnStatusImportante.setVisibility(View.GONE);
                 btnelegir.setVisibility(View.VISIBLE);
-                prioridad = "Urgente";
+                prioridad = "3";
                 btnStatusUrgente.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Prioridad: Urgente", Toast.LENGTH_LONG).show();
             }
@@ -184,7 +184,7 @@ public class RegistroActivity extends ActionBarActivity {
             jsonObject.put("area", problema.getArea());
             jsonObject.put("titulo",problema.getTitulo());
             jsonObject.put("descripcion",problema.getDescripcion());
-            jsonObject.put("prioridad","1");
+            jsonObject.put("prioridad",""+prioridad);
             jsonObject.put("estado","1");
             jsonObject.put("fecha","2015-01-23");
             jsonObject.put("usuario","1");
