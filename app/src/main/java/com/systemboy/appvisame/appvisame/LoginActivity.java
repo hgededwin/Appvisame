@@ -1,19 +1,27 @@
 package com.systemboy.appvisame.appvisame;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import com.pkmmte.view.CircularImageView;
 
 
 public class LoginActivity extends ActionBarActivity {
 
-    Button btninicio;
+    Button btnLogin;
+    static String NAME = "ehernndez";
+    static String PASS = "edwindaniel123";
+    EditText edtxtUser;
+    EditText edtxtPass;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +33,19 @@ public class LoginActivity extends ActionBarActivity {
             layoutParams.height = 0;
         }
 
-        btninicio = (Button)findViewById(R.id.btnIniciar);
+        edtxtUser = (EditText)findViewById(R.id.edtxtUsuario);
+        edtxtPass = (EditText)findViewById(R.id.edtxtPassw);
+        btnLogin = (Button)findViewById(R.id.btnIniciar);
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String name = prefs.getString("name", "");
+        String pass = prefs.getString("pass", "");
+
+        if(name.equals(NAME) && pass.equals(PASS)){
+
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image_circular);
         circularImageView.setBorderColor(getResources().getColor(R.color.accent_color));
@@ -33,7 +53,7 @@ public class LoginActivity extends ActionBarActivity {
         circularImageView.addShadow();
 
 
-        btninicio.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
