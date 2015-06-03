@@ -1,12 +1,16 @@
 package com.systemboy.appvisame.appvisame;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +20,7 @@ import android.view.ViewManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -152,8 +157,46 @@ public class MainActivity extends ActionBarActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
 
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
+                new MaterialDialog.Builder(this)
+                        .title(R.string.txt_config)
+                        .titleColorRes(R.color.primary_dark_color)
+                        .content("¿Deseas cerrar tu sesión?")
+                        .positiveText(R.string.txt_cerrar_sesion)
+                        .negativeText(R.string.txt_cancelar)
+                        .negativeColorRes(R.color.black_color)
+                        .positiveColorRes(R.color.primary_dark_color)
+                        .callback(new MaterialDialog.ButtonCallback() {
+
+                            @Override
+                            public void onPositive(MaterialDialog mdialog) {
+
+                                SharedPreferences settings = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = settings.edit();
+                                editor.putString("name", "");
+                                editor.putString("pass", "");
+                                editor.putString("nameroot", "");
+                                editor.putString("passroot", "");
+                                editor.commit();
+
+                                final ProgressDialog dialogo = ProgressDialog.show(MainActivity.this, getString(R.string.txt_progress_cerrando), getString(R.string.txt_progress_espere));
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try{
+                                            Thread.sleep(3000);
+                                            dialogo.dismiss();
+                                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                                            startActivity(intent);
+                                            finish();
+
+                                        }catch (InterruptedException e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }).start();
+                            }
+                        })
+                        .show();
                 break;
             case R.id.action_about:
                 Intent intentAbout = new Intent(MainActivity.this, AcercaActivity.class);
@@ -192,5 +235,30 @@ public class MainActivity extends ActionBarActivity {
 
         Toast.makeText(getApplicationContext(), "Error al cargar la sección de pendientes", Toast.LENGTH_LONG);
 
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            new MaterialDialog.Builder(this)
+                    .title(getString(R.string.txt_desea_salir))
+                    .content(getString(R.string.txt_estas_seguro))
+                    .titleColorRes(R.color.primary_dark_color)
+                    .positiveText(getString(R.string.txt_salir))
+                    .negativeColorRes(R.color.black_color)
+                    .positiveColorRes(R.color.primary_dark_color)
+                    .negativeText(getString(R.string.txt_cancelar))
+                    .callback(new MaterialDialog.ButtonCallback() {
+
+                        @Override
+                        public void onPositive(MaterialDialog mdialog) {
+                            MainActivity.this.finish();
+                        }
+                    })
+                    .show();
+        }
+        return false;
     }
 }

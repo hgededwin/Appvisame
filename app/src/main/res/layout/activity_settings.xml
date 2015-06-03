@@ -57,7 +57,7 @@
         android:textStyle="bold"
         android:textColor="@color/white_color"
         android:background="@color/primary_color"
-        android:id="@+id/button"
+        android:id="@+id/btn_cerrar"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"

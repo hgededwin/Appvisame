@@ -20,5 +20,21 @@
     <string name="transition_name_name">transition:NAME</string>
     <string name="transition_name_circle">transition:CIRCLE</string>
     <string name="transition_name_phone">transition:PHONE</string>
+    <string name="txt_campo_vacio">Éste campo es necesario</string>
+    <string name="txt_progress_iniciando">Iniciando sesión</string>
+    <string name="txt_progress_bienvenido">Bienvenido</string>
+    <string name="txt_user_incorrecto">Usuario incorrecto</string>
+    <string name="txt_pass_incorrecto">Contraseña incorrecta</string>
+    <string name="txt_error">¡ERROR!</string>
+    <string name="txt_pass_usuario_incorrecto">El usuario o la contraseña son incorrectos</string>
+    <string name="txt_entendido">Entendido</string>
+    <string name="txt_desea_salir">¿Deseas salir?</string>
+    <string name="txt_estas_seguro">¿Estás seguro que deseas salir?</string>
+    <string name="txt_salir">Salir</string>
+    <string name="txt_cancelar">Cancelar</string>
+    <string name="txt_progress_cerrando">Cerrando sesión</string>
+    <string name="txt_progress_espere">Espere, por favor…</string>
+    <string name="txt_config">Configuración</string>
+    <string name="txt_cerrar_sesion">Cerrar Sesión</string>
 
 </resources>
