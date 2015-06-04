@@ -33,7 +33,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactV
         contactViewHolder.vTitulo.setText(ci.getTitulo());
         context=contactViewHolder.context;
         contactViewHolder.vEstado.setText(ci.getEstado());
-        contactViewHolder.vFecha.setText(ci.getFecha());
+      //  contactViewHolder.vFecha.setText(ci.getFecha());
         contactViewHolder.vUrgencia.setText(ci.getUrgencia());
         switch(ci.getUrgencia()){
             case "Normal":
@@ -70,7 +70,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactV
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
         protected TextView vTitulo;
         protected TextView vEstado;
-        protected TextView vFecha;
+       // protected TextView vFecha;
         protected TextView vUrgencia;
         protected ImageView imgUrgencia;
         protected CardView card;
@@ -79,7 +79,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ContactV
             super(v);
             vTitulo =  (TextView) v.findViewById(R.id.txt_Titulo);
             vEstado = (TextView)  v.findViewById(R.id.txt_estado);
-            vFecha = (TextView)  v.findViewById(R.id.txt_fecha);
+         //   vFecha = (TextView)  v.findViewById(R.id.txt_fecha);
             vUrgencia = (TextView) v.findViewById(R.id.txt_urgencia);
             imgUrgencia = (ImageView) v.findViewById(R.id.image_urgencia);
             card= (CardView) v.findViewById(R.id.cardInicio);

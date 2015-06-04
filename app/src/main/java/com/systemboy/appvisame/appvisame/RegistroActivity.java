@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +75,7 @@ public class RegistroActivity extends ActionBarActivity {
         mes = mes + 1;
         int dia = c.get(Calendar.DAY_OF_MONTH); // obtemos el día.
         fecha = anio + "-" + mes + "-" + dia;
-        Log.e("error", "error " + fecha );
+        System.out.println("#########################->"+fecha);
 
 
         volley = Singleton.getInstance(this);
@@ -192,6 +191,7 @@ public class RegistroActivity extends ActionBarActivity {
                             reporte.setTitulo(edTitulo.getText().toString());
                             reporte.setDescripcion(edDescripcion.getText().toString());
                             reporte.setPrioridad(prioridad);
+                            reporte.setFecha(fecha);
                             // persona.setName("Desconocido");
                             // persona.setEmail("hola@mundo.com");
                             enviarJSON(reporte);
@@ -227,7 +227,7 @@ public class RegistroActivity extends ActionBarActivity {
             jsonObject.put("descripcion",problema.getDescripcion());
             jsonObject.put("prioridad",""+prioridad);
             jsonObject.put("estado","1");
-            jsonObject.put("fecha", "" + fecha);
+            jsonObject.put("fecha", problema.getFecha());
             jsonObject.put("usuario","1");
           //  jsonObject.put("usuario",registra.getName());
            // jsonObject.put("correo",registra.getEmail());

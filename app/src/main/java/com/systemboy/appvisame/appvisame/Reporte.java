@@ -41,7 +41,7 @@ public class Reporte{
         this.prioridad = prioridad;
     }
 
-    public String getFecha(String fecha){
+    public String getFecha(){
         return fecha;
     }
     public void setFecha(String fecha){
