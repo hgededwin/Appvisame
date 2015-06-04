@@ -192,6 +192,8 @@ public class RegistroActivity extends ActionBarActivity {
                             reporte.setTitulo(edTitulo.getText().toString());
                             reporte.setDescripcion(edDescripcion.getText().toString());
                             reporte.setPrioridad(prioridad);
+                            // persona.setName("Desconocido");
+                            // persona.setEmail("hola@mundo.com");
                             enviarJSON(reporte);
                             makeRequest();
 
