@@ -13,6 +13,8 @@
     <string name="txt_nombre_reporte">Nombre del reporte…</string>
     <string name="title_reporte">Reportar un problema</string>
     <string name="txt_seleciona_importancia">Importancia del reporte:</string>
+    <string name="txt_fecha_st">Fecha:</string>
+    <string name="txt_enviando">Enviando reporte</string>
     <string name="txt_quiero_elegir">Elegir de nuevo</string>
     <string name="txt_btn_reportar">Enviar reporte</string>
     <string name="txt_bienvenido">Bienvenido</string>

@@ -86,6 +86,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RegistroActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -183,7 +184,7 @@ public class MainActivity extends ActionBarActivity {
                                     @Override
                                     public void run() {
                                         try{
-                                            Thread.sleep(3000);
+                                            Thread.sleep(5000);
                                             dialogo.dismiss();
                                             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                                             startActivity(intent);
@@ -254,10 +255,13 @@ public class MainActivity extends ActionBarActivity {
 
                         @Override
                         public void onPositive(MaterialDialog mdialog) {
+
                             MainActivity.this.finish();
+
                         }
                     })
                     .show();
+
         }
         return false;
     }

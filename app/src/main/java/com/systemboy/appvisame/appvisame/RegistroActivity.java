@@ -1,11 +1,13 @@
 package com.systemboy.appvisame.appvisame;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,6 +68,15 @@ public class RegistroActivity extends ActionBarActivity {
         toolbar.setTitle(R.string.title_reporte);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        final Calendar c = Calendar.getInstance();
+        int anio = c.get(Calendar.YEAR); //obtenemos el año
+        int mes = c.get(Calendar.MONTH); //obtenemos el mes
+        mes = mes + 1;
+        int dia = c.get(Calendar.DAY_OF_MONTH); // obtemos el día.
+        fecha = anio + "-" + mes + "-" + dia;
+        Log.e("error", "error " + fecha );
 
 
         volley = Singleton.getInstance(this);
@@ -158,14 +170,41 @@ public class RegistroActivity extends ActionBarActivity {
         btnEnviarReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reporte.setArea(area+1);
-                reporte.setTitulo(edTitulo.getText().toString());
-                reporte.setDescripcion(edDescripcion.getText().toString());
-                reporte.setPrioridad(prioridad);
-               // persona.setName("Desconocido");
-               // persona.setEmail("hola@mundo.com");
-                enviarJSON(reporte);
-                makeRequest();
+
+
+                if ("".equals(edTitulo.getText().toString())) {
+                    edTitulo.setError(getString(R.string.txt_campo_vacio));
+                } else if ("".equals(edDescripcion.getText().toString())) {
+                    edDescripcion.setError(getString(R.string.txt_campo_vacio));
+                }else if(prioridad == null) {
+                    Toast.makeText(getApplicationContext(), "Debes seleccionar la urgencia del reporte.", Toast.LENGTH_SHORT).show();
+                }else{
+
+                final ProgressDialog dialogo = ProgressDialog.show(RegistroActivity.this, getString(R.string.txt_enviando), getString(R.string.txt_progress_espere));
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(5000);
+                            dialogo.dismiss();
+
+                            reporte.setArea(area+1);
+                            reporte.setTitulo(edTitulo.getText().toString());
+                            reporte.setDescripcion(edDescripcion.getText().toString());
+                            reporte.setPrioridad(prioridad);
+                            enviarJSON(reporte);
+                            makeRequest();
+
+                            Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            RegistroActivity.this.finish();
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+                }
             }
         });
     }
@@ -186,7 +225,7 @@ public class RegistroActivity extends ActionBarActivity {
             jsonObject.put("descripcion",problema.getDescripcion());
             jsonObject.put("prioridad",""+prioridad);
             jsonObject.put("estado","1");
-            jsonObject.put("fecha","2015-01-23");
+            jsonObject.put("fecha", "" + fecha);
             jsonObject.put("usuario","1");
           //  jsonObject.put("usuario",registra.getName());
            // jsonObject.put("correo",registra.getEmail());
